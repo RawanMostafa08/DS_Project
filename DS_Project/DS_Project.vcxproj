@@ -139,16 +139,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CancellationEvent.h" />
     <ClInclude Include="Cargo.h" />
     <ClInclude Include="Event.h" />
+    <ClInclude Include="NormalCargo.h" />
+    <ClInclude Include="PromotionEvent.h" />
+    <ClInclude Include="ReadyEvent.h" />
+    <ClInclude Include="SpecialCargo.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Truck.h" />
+    <ClInclude Include="VIPCargo.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CancellationEvent.cpp" />
     <ClCompile Include="Cargo.cpp" />
     <ClCompile Include="Event.cpp" />
+    <ClCompile Include="NormalCargo.cpp" />
+    <ClCompile Include="PromotionEvent.cpp" />
+    <ClCompile Include="ReadyEvent.cpp" />
+    <ClCompile Include="SpecialCargo.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Truck.cpp" />
+    <ClCompile Include="VIPCargo.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

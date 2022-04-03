@@ -20,4 +20,8 @@ Time::Time(int h, int d)
 {
 	SetDay(d); SetHour(h);
 }
+Time::Time()
+{
+}
+
 

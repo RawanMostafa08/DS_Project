@@ -4,12 +4,11 @@ class Time
 	int hour;
 	int day;
 public:
-	Time(int h, int d);
+	Time(int,int);
+	Time();
 	void SetHour(int h);
 	void SetDay(int d);
 	int GetDay();
 	int GetHour();
-
-
 };
 
