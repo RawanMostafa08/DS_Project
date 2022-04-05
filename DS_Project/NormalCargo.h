@@ -5,7 +5,7 @@
 class NormalCargo :
     public Cargo
 {
-    int AutoP;
+    int AutoP; //days starts from prep time
 public:
     void Promote(int,double,bool);
     void Cancel(int ID);

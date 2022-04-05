@@ -8,7 +8,7 @@ class PromotionEvent :
 public:
    PromotionEvent();
     void PrintInfo(int,double);
-    virtual void Execute(int, double,bool);
+    virtual void Execute(/*int, double,bool*/);
     /*void SetExtraMoney(double);
     double GetExtraMoney();*/
 };

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -141,25 +141,38 @@
   <ItemGroup>
     <ClInclude Include="CancellationEvent.h" />
     <ClInclude Include="Cargo.h" />
+    <ClInclude Include="Company.h" />
     <ClInclude Include="Event.h" />
+    <ClInclude Include="ArrayStack.h" />
+    <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="SpecCargo.h" />
+    <ClInclude Include="StackADT.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="LinkedQueue.h" />
+    <ClInclude Include="QueueADT.h" />
     <ClInclude Include="NormalCargo.h" />
     <ClInclude Include="PromotionEvent.h" />
     <ClInclude Include="ReadyEvent.h" />
     <ClInclude Include="SpecialCargo.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Truck.h" />
+    <ClInclude Include="UI.h" />
     <ClInclude Include="VIPCargo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CancellationEvent.cpp" />
     <ClCompile Include="Cargo.cpp" />
+    <ClCompile Include="Company.cpp" />
     <ClCompile Include="Event.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="NormalCargo.cpp" />
     <ClCompile Include="PromotionEvent.cpp" />
     <ClCompile Include="ReadyEvent.cpp" />
+    <ClCompile Include="SpecCargo.cpp" />
     <ClCompile Include="SpecialCargo.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Truck.cpp" />
+    <ClCompile Include="UI.cpp" />
     <ClCompile Include="VIPCargo.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

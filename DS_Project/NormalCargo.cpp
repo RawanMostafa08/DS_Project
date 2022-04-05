@@ -2,8 +2,8 @@
 #
 void NormalCargo::Promote(int ID ,double EM,bool L)
 {
-	PromotionEvent* P;
-	P->Execute(ID,EM,L);
+	PromotionEvent* P=new PromotionEvent;
+	P->Execute(/*ID,EM,L*/);
 }
 
 void NormalCargo::Cancel(int ID)

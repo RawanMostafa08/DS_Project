@@ -53,6 +53,11 @@ int Cargo::GetID()
 	return ID;
 }
 
+void Cargo::SetCargoType(char c)
+{
+	CargoType = c;
+}
+
 char Cargo::GetCargoType()
 {
 	return CargoType;

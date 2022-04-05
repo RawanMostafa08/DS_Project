@@ -18,10 +18,10 @@ void PromotionEvent::PrintInfo(int ID, double EM)
 	}
 }
 
-void PromotionEvent::Execute(int ID,double EM,bool L)
+void PromotionEvent::Execute(/*int ID,double EM,bool L*/)
 {
 
-	PrintInfo(ID,EM);
+	/*PrintInfo(ID,EM);*/
 }
 
 //void PromotionEvent::SetExtraMoney(double D)
