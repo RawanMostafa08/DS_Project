@@ -1,18 +1,9 @@
 #pragma once
 #include "Truck.h"
-
-bool Truck::LoadCargo(Cargo c)
+Truck::Truck()
 {
-	if (CargoNo == TruckCap)
-		return false;
-	else
-	{
-		Cargos.enqueue(c);
-		CargoNo++;
-		return true;
-	}
-}
 
+}
 bool Truck::UnLoad()
 {
 	Cargo c;
@@ -24,3 +15,142 @@ bool Truck::UnLoad()
 	}
 	return false;
 }
+Truck::Truck(char c,int NS,int NC,int j,int CN)
+{
+	SetTruckType(c);
+	SetTruckSpeed(NS);
+	SetTruckCap(NC);
+	SetJ(j);
+	SetCheckTime(CN);
+}
+bool Truck::LoadCargo(Cargo c)
+{
+	if (CargoNo == TruckCap)
+		return false;
+	else
+	{
+		Cargos.enqueue(c);
+		CargoNo++;
+		return true;
+	}
+}
+void Truck::SetJ(int j)
+{
+	if (j <= 0)
+		J = 1;
+	else J = j;
+}
+int Truck::GetJ()
+{
+	return J;
+	return 0;
+}
+void Truck::SetCargoNo(int a)
+{
+	if (a < 0)
+		CargoNo = 0;
+	else CargoNo = a;
+}
+
+void Truck::SetCountJ(int b)
+{
+	if (b < 0)
+		CountJ = 0;
+	else CountJ = b;
+}
+
+void Truck::SetCheckTime(float t)
+{
+	if (t < 0)
+		CheckTime = 1;
+	else CheckTime = t;
+}
+
+void Truck::SetTruckSpeed(int s)
+{
+	if (s < 0)
+		s = 0;
+	else TruckSpeed = s;
+}
+
+int Truck::GetCargoNo()
+{
+	return CargoNo;
+}
+
+void Truck::SetDelvTime(float d)
+{
+	if (d > 0)
+		DelvTime = d;
+
+}
+
+void Truck::SetTruckCap(int c)
+{
+	if (c > 0)
+		TruckCap = c;
+}
+
+int Truck::GetTruckCap()
+{
+	return TruckCap;
+}
+
+int Truck::GetCountJ()
+{
+	return CountJ;
+}
+
+float Truck::GetCheckTime()
+{
+	return CheckTime;
+}
+
+int Truck::GetTruckSpeed()
+{
+	return TruckSpeed;
+}
+
+
+bool Truck::IsLoaded()
+{
+	if (CargoNo == TruckCap)
+		return true;
+	return false;
+}
+
+void Truck::SetTruckType(char c)
+{
+	TruckType = c;
+}
+
+char Truck::GetTruckType()
+{
+	return TruckType;
+}
+
+//in class company
+////bool Truck::GoDelivery(Truck* T)
+////{
+////	if (T->IsLoaded())
+////	{
+////		//dequeue from waiting Trucks to delivery
+////		return true;
+////	}
+////	return false;
+////}
+// /////////////////////////////////////////////
+////void Truck::GoCheckup(Truck* T)
+////{
+////		Maintenance.enqueue(T);
+////}
+// ////////////////////////////////////
+////void Truck::returnTruck(Truck* T)
+////{
+////	if (T->CountJ == J)
+////		GoCheckUp(T);
+////	else //enqueue in waiting Trucks
+////}
+
+
+

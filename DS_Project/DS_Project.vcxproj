@@ -145,7 +145,8 @@
     <ClInclude Include="Event.h" />
     <ClInclude Include="ArrayStack.h" />
     <ClInclude Include="LinkedList.h" />
-    <ClInclude Include="SpecCargo.h" />
+    <ClInclude Include="NormalTruck.h" />
+    <ClInclude Include="SpecialTruck.h" />
     <ClInclude Include="StackADT.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="LinkedQueue.h" />
@@ -158,6 +159,7 @@
     <ClInclude Include="Truck.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="VIPCargo.h" />
+    <ClInclude Include="VIPTruck.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CancellationEvent.cpp" />
@@ -166,14 +168,16 @@
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NormalCargo.cpp" />
+    <ClCompile Include="NormalTruck.cpp" />
     <ClCompile Include="PromotionEvent.cpp" />
     <ClCompile Include="ReadyEvent.cpp" />
-    <ClCompile Include="SpecCargo.cpp" />
     <ClCompile Include="SpecialCargo.cpp" />
+    <ClCompile Include="SpecialTruck.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Truck.cpp" />
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="VIPCargo.cpp" />
+    <ClCompile Include="VIPTruck.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

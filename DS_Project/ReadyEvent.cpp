@@ -29,9 +29,8 @@ void ReadyEvent::PrintInfo()
 	{
 	}
 }
-void ReadyEvent::Execute(Cargo* C)
+void ReadyEvent::Execute()
 {
 	//Initially prints only
-	TYP = C;
 	PrintInfo();
 }

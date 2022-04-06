@@ -8,6 +8,6 @@ class ReadyEvent :
 public:
     ReadyEvent();
     void PrintInfo();
-    virtual void Execute(Cargo*);
+    virtual void Execute();
 };
 

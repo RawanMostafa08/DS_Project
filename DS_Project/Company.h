@@ -1,19 +1,33 @@
 #pragma once
 #include"NormalCargo.h"
 #include"VIPCargo.h"
-#include"SpecCargo.h"
+#include"SpecialCargo.h"
+//#include"NormalTruck.h"
+//#include"SpecialTruck.h"
+//#include"VIPTruck.h"
 #include"Truck.h"
 #include"Time.h"
 #include"LinkedList.h"
-#include"Event.h"
+//#include"Event.h"
+#include"ReadyEvent.h"
+#include"CancellationEvent.h"
+#include"PromotionEvent.h"
 #include"UI.h"
 class Company
 {
+	//Cargo Lists
 	LinkedQueue<NormalCargo>N;
+	LinkedQueue<SpecialCargo>S;
 	LinkedQueue<VIPCargo>V;
-	LinkedQueue<SpecCargo>Z;
+	//Truck Lists
+	/*LinkedList<NormalTruck>NT;
+	LinkedList<SpecialTruck>ST;
+	LinkedList<VIPTruck>VT;*/
 	LinkedList<Truck>T;
-	LinkedList<Event*>E;
+	//Event Pointer
+	LinkedQueue<Event*>E;
+	//InputFile Object
+	ifstream in;
 public:
 	Company();
 	//StartUp Functions
