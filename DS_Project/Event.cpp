@@ -17,10 +17,10 @@ void Event::SetEventTime(Time T)
 	EventTime = T;
 }
 
-string Event::GetEventTime()
-{
-	return (to_string(EventTime.GetDay()) + ":" + to_string(EventTime.GetHour()));
-}
+//string Event::GetEventTime()
+//{
+//	return (to_string(EventTime.GetDay()) + ":" + to_string(EventTime.GetHour()));
+//}
 
 Event::~Event()
 {

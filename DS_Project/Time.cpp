@@ -23,5 +23,30 @@ Time::Time(int h, int d)
 Time::Time()
 {
 }
-
+void Time::PassHour()
+{
+	hour++;
+}
+Time Time:: operator - (Time const& t)
+{
+	Time res;
+	res.hour = hour - t.hour;
+	res.day = day - t.day;
+	return res;
+}
+bool Time::operator >(Time const& t)
+{
+	if (day > t.day) return true;
+	else if (day < t.day)return false;
+	else
+	{
+		if (hour > t.hour)return true;
+	}
+	return false;
+}
+bool Time::operator ==(Time const& t)
+{
+	if (day == t.day && hour == t.hour) return true;
+	return false;
+}
 

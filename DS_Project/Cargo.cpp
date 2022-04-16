@@ -62,3 +62,13 @@ char Cargo::GetCargoType()
 {
 	return CargoType;
 }
+
+Time Cargo::GetMaxW()
+{
+	return MaxWait;
+}
+
+Time Cargo::GetWaitTime()
+{
+	return  MoveTime - ReadyTime;
+}

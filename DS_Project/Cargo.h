@@ -12,6 +12,10 @@ class Cargo
 	char CargoType;
 	bool Loaded;
 	int MaxW; //hours starts when??
+	Time MaxWait;
+	Time WaitTime;
+	//float AssignTime;
+	Time MoveTime;
 public:
 	/*Cargo();*/
 	void SetReadyTime(Time);
@@ -19,7 +23,7 @@ public:
 	void SetDelvDistance(float);
 	void SetCost(double);
 	void SetId(int);
-	/*string GetReadyTime();*/
+	/*string GetReadyTime(); */
 	Time GetReadyTime();
 	float GetLoadTime();
 	float GetDelvDistance();
@@ -27,5 +31,8 @@ public:
 	int GetID();
 	virtual void SetCargoType(char);
 	char GetCargoType();
+	Time GetMaxW();
+	Time GetWaitTime();
+	/*Time GetMoveTime();*/
 };
 

@@ -2,11 +2,11 @@
 #include "Truck.h"
 Truck::Truck()
 {
-
 }
-bool Truck::UnLoad()
+
+bool Truck::UnLoad(Cargo c)
 {
-	Cargo c;
+	
 	while (CargoNo != 0)
 	{
 		CargoNo--;
@@ -15,6 +15,7 @@ bool Truck::UnLoad()
 	}
 	return false;
 }
+
 Truck::Truck(char c,int NS,int NC,int j,int CN)
 {
 	SetTruckType(c);
@@ -23,28 +24,20 @@ Truck::Truck(char c,int NS,int NC,int j,int CN)
 	SetJ(j);
 	SetCheckTime(CN);
 }
-bool Truck::LoadCargo(Cargo c)
-{
-	if (CargoNo == TruckCap)
-		return false;
-	else
-	{
-		Cargos.enqueue(c);
-		CargoNo++;
-		return true;
-	}
-}
+
 void Truck::SetJ(int j)
 {
 	if (j <= 0)
 		J = 1;
 	else J = j;
 }
+
 int Truck::GetJ()
 {
 	return J;
 	return 0;
 }
+
 void Truck::SetCargoNo(int a)
 {
 	if (a < 0)
@@ -78,13 +71,6 @@ int Truck::GetCargoNo()
 	return CargoNo;
 }
 
-void Truck::SetDelvTime(float d)
-{
-	if (d > 0)
-		DelvTime = d;
-
-}
-
 void Truck::SetTruckCap(int c)
 {
 	if (c > 0)
@@ -111,7 +97,6 @@ int Truck::GetTruckSpeed()
 	return TruckSpeed;
 }
 
-
 bool Truck::IsLoaded()
 {
 	if (CargoNo == TruckCap)
@@ -128,6 +113,130 @@ char Truck::GetTruckType()
 {
 	return TruckType;
 }
+
+bool Truck::LoadCargo(Cargo c)
+{
+
+
+	if (!IsLoaded())
+	{
+		TotLoadTime += c.GetLoadTime();
+		if (CargoNo == 0)
+			MaxDistCargo = c.GetDelvDistance();
+		else if (c.GetDelvDistance() > MaxDistCargo)
+			MaxDistCargo = c.GetDelvDistance();
+
+
+		Cargos.enqueue(c);
+		CargoNo++;
+		if (IsLoaded())
+		{
+			SetDelvTime(MaxDistCargo, TotLoadTime);
+			return false;
+		}
+		return true;
+
+	}
+}
+
+float Truck::GetDelvTime()
+{
+	return DelvTime;
+}
+
+void Truck::SetDelvTime(float d, float t)
+{
+	DelvTime = 2 * (d / TruckSpeed) + t;
+}
+
+int Truck::GetTC()
+{
+	return TruckCap;
+}
+
+//void Truck::SetDelvTime(float d)
+//{
+//	if (d > 0)
+//		DelvTime = d;
+//
+//}
+//bool Truck::LoadCargo(Cargo c)
+//{
+//	if (CargoNo == TruckCap)
+//		return false;
+//	else
+//	{
+//		Cargos.enqueue(c);
+//		CargoNo++;
+//		return true;
+//	}
+//}
+//void Truck::SetJ(int j)
+//{
+//	if (j <= 0)
+//		J = 1;
+//	else J = j;
+//}
+//int Truck::GetJ()
+//{
+//	return J;
+//	return 0;
+//}
+//void Truck::SetCargoNo(int a)
+//{
+//	if (a < 0)
+//		CargoNo = 0;
+//	else CargoNo = a;
+//}
+//
+//void Truck::SetCountJ(int b)
+//{
+//	if (b < 0)
+//		CountJ = 0;
+//	else CountJ = b;
+//}
+
+//void Truck::SetCheckTime(float t)
+//{
+//	if (t < 0)
+//		CheckTime = 1;
+//	else CheckTime = t;
+//}
+//
+//void Truck::SetTruckSpeed(float s)
+//{
+//	if (s < 0)
+//		s = 0;
+//	else TruckSpeed = s;
+//}
+//
+//int Truck::GetCargoNo()
+//{
+//	return CargoNo;
+//}
+//
+//int Truck::GetCountJ()
+//{
+//	return CountJ;
+//}
+//
+//float Truck::GetCheckTime()
+//{
+//	return CheckTime;
+//}
+//
+//float Truck::GetTruckSpeed()
+//{
+//	return TruckSpeed;
+//}
+//
+//
+//bool Truck::IsLoaded()
+//{
+//	if (CargoNo == TruckCap)
+//		return true;
+//	return false;
+//}
 
 //in class company
 ////bool Truck::GoDelivery(Truck* T)

@@ -4,10 +4,11 @@
 class CancellationEvent :
     public Event
 {
-    NormalCargo* TYP;
+
 public:
     CancellationEvent();
-    void PrintInfo();
+   /* void PrintInfo();*/
     virtual void Execute();
+
 };
 

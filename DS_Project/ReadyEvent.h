@@ -7,7 +7,7 @@ class ReadyEvent :
     Cargo* TYP;
 public:
     ReadyEvent();
-    void PrintInfo();
+    /*void PrintInfo();*/
     virtual void Execute();
 };
 

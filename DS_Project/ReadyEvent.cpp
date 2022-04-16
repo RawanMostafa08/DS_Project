@@ -15,22 +15,21 @@ ReadyEvent::ReadyEvent()
 	TYP = NULL;
 	EventLetter = 'R';
 }
-void ReadyEvent::PrintInfo()
-{
-	out.open("t.txt");
-	if (out.is_open())
-	{
-		out << EventLetter << "\t" << TYP->GetCargoType() << "\t";
-		out << GetEventTime() << "\t"<< TYP->GetID()<< "\t"<<TYP->GetDelvDistance()<< "\t"<<TYP->GetLoadTime();
-		out << TYP->GetCost() << endl;
-		out.close();
-	}
-	else
-	{
-	}
-}
+//void ReadyEvent::PrintInfo()
+//{
+//	out.open("t.txt");
+//	if (out.is_open())
+//	{
+//		out << EventLetter << "\t" << TYP->GetCargoType() << "\t";
+//		out << GetEventTime() << "\t"<< TYP->GetID()<< "\t"<<TYP->GetDelvDistance()<< "\t"<<TYP->GetLoadTime();
+//		out << TYP->GetCost() << endl;
+//		out.close();
+//	}
+//	else
+//	{
+//	}
+//}
 void ReadyEvent::Execute()
 {
-	//Initially prints only
-	PrintInfo();
+	/*PrintInfo();*/
 }

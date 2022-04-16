@@ -19,19 +19,19 @@ void Company::SystemLoad()
 		if (x>0)
 		{
 			Truck t('N', NS, NC, j, CN);
-			T.InsertBeg(t);
+			NT.enqueue(t);
 			x--;
 		}
 		if (y>0)
 		{
 			Truck t('S', SS, SC, j, CS);
-			T.InsertBeg(t);
+			ZT.enqueue(t);
 			y--;
 		}
 		if (z>0)
 		{
 			Truck t('V', VS, VC, j, CV);
-			T.InsertBeg(t);
+			VT.enqueue(t);
 			z--;
 		}
 	}
@@ -66,6 +66,27 @@ void Company::Check()
 
 void Company::Assign()
 {
+	if (AssignTime.GetHour() < 5 || AssignTime.GetHour() > 23)
+		return;
+	else
+	{
+		NormalCargo NormC; Truck NormT; NC.peek(NormC); NT.peek(NormT);
+		if (NormC.GetWaitTime() > NormC.GetMaxW() || NormC.GetWaitTime() == NormC.GetMaxW())
+		{
+			NC.dequeue(NormC);
+			NT.dequeue(NormT);
+			NormT.LoadCargo(NormC);
+			DelvTruck.enqueue(NormT, NormT.GetDelvTime());
+		}
+		else
+		{
+			for (int i = 0; i < NormT.GetTC(); i++)
+			{
+				//NC.
+			}
+		}
+	}
+
 }
 
 void Company::UpdateCargos()

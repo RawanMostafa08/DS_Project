@@ -10,5 +10,10 @@ public:
 	void SetDay(int d);
 	int GetDay();
 	int GetHour();
+
+	void PassHour();
+	Time operator - (Time const& t);
+	bool operator >(Time const& t);
+	bool operator ==(Time const& t);
 };
 

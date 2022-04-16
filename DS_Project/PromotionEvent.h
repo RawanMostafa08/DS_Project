@@ -5,11 +5,12 @@
 class PromotionEvent :
     public Event
 {
+    double ExtraMoney;
 public:
    PromotionEvent();
-    void PrintInfo(int,double);
-    virtual void Execute(/*int, double,bool*/);
-    /*void SetExtraMoney(double);
-    double GetExtraMoney();*/
+   /* void PrintInfo(int,double);*/
+    virtual void Execute();
+    void SetExtraMoney(double);
+    double GetExtraMoney();
 };
 

@@ -14,21 +14,33 @@ class Truck
 	LinkedQueue<Cargo> Cargos;
 	char TruckType;
 protected:
-	//int CargoNo;
+	/*int CargoNo;*/
 	int CountJ;
+	/*float CheckTime;*/
+	/*float TruckSpeed;
+	float DelvTime;*/
+	float MaxDistCargo;
+	float TotLoadTime;
+	//LinkedQueue<Cargo*> Cargos;
+	//int TruckCap;
+	//int J;
+	int Status; // 0->waiting		1->delivery		2->checkup
+	int type; //0->vip		1->normal		2->special
+	//int CargoNo;
+	/*int CountJ;*/
 //	float CheckTime;
 //	float TruckSpeed;
 //	float DelvTime;
 //	LinkedQueue<Cargo*> Cargos;
 //	int TruckCap;
 //	int J;
-	int Status; // 0->waiting		1->delivery		2->checkup
-	int type; //0->vip		1->normal		2->special
+	//int Status; // 0->waiting		1->delivery		2->checkup
+	//int type; //0->vip		1->normal		2->special
 public:
 	Truck(char,int,int,int,int);
 	Truck();
 	bool LoadCargo(Cargo c);
-	bool UnLoad();
+	bool UnLoad(Cargo c);
 	bool IsLoaded();
 	
 	void SetTruckType(char);
@@ -43,8 +55,9 @@ public:
 	void SetCargoNo(int a);
 	int GetCargoNo();
 	
-	void SetDelvTime(float d);
-
+	/*void SetDelvTime(float d);*/
+	float GetDelvTime();
+	void SetDelvTime(float m, float n);
 
 	void SetTruckCap(int);
 	int GetTruckCap();
@@ -55,7 +68,8 @@ public:
 	void SetCheckTime(float t);
 	float GetCheckTime();
 	
-
+	int GetTC();
+	
 
 	////////////////////////////////////////////////////
 	///*bool GoCheckup(Truck* T);
