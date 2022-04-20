@@ -11,7 +11,7 @@ class Truck
 	float CheckTime;
 	float TruckSpeed;
 	float DelvTime;
-	LinkedQueue<Cargo> Cargos;
+	LinkedQueue<Cargo*> Cargos;
 	char TruckType;
 protected:
 	/*int CargoNo;*/
@@ -39,8 +39,8 @@ protected:
 public:
 	Truck(char,int,int,int,int);
 	Truck();
-	bool LoadCargo(Cargo c);
-	bool UnLoad(Cargo c);
+	bool LoadCargo(Cargo* c);
+	bool UnLoad(Cargo* c);
 	bool IsLoaded();
 	
 	void SetTruckType(char);

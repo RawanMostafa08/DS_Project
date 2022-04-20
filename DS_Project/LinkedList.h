@@ -84,7 +84,22 @@ public:
 
 	//[2]Find 
 	//searches for a given value in the list, returns true if found; false otherwise.
-	bool Find(int Key);
+	bool Find(T &P)
+	{
+
+		Node<T> * N= Head;
+		while (N->getNext())
+		{
+			if (N->getItem() == P)
+			{
+				P = N->getItem();
+				return true;
+			}
+			else
+				N = N->getNext();
+		}
+		return false;
+	}
 
 	//[3]CountOccurance
 	//returns how many times a certain value appeared in the list

@@ -55,9 +55,11 @@ private:
 
 	PriorityNode<T>* backPtr;
 	PriorityNode<T>* frontPtr;
+	int count;
 
 public:
 	PriorityQueue();
+	int GetCount();
 	bool isEmpty() const;
 	bool enqueue(const T& newEntry, float x);
 	bool dequeue(T& frntEntry);
@@ -81,7 +83,7 @@ PriorityQueue<T>::PriorityQueue()
 {
 	backPtr = nullptr;
 	frontPtr = nullptr;
-
+	count = 0;
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -97,7 +99,11 @@ bool PriorityQueue<T>::isEmpty() const
 {
 	return (frontPtr == nullptr);
 }
-
+template <typename T>
+int PriorityQueue<T>::GetCount()
+{
+	return count;
+}
 /////////////////////////////////////////////////////////////////////////////////////////
 
 /*Function:enqueue
@@ -143,6 +149,7 @@ bool PriorityQueue<T>::enqueue(const T& newEntry, float t)
 		}
 		backPtr->setNext(newNodePtr); // The queue was not empty
 		backPtr = newNodePtr; // New node is the last node now
+		count++;
 		return true;
 	}
 } // end enqueue
@@ -173,7 +180,7 @@ bool PriorityQueue<T>::dequeue(T& frntEntry)
 
 	// Free memory reserved for the dequeued node
 	delete nodeToDeletePtr;
-
+	count--;
 	return true;
 
 }

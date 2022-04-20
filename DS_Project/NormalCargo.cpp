@@ -1,12 +1,19 @@
 #include "NormalCargo.h"
-#
-void NormalCargo::Promote(int ID ,double EM,bool L)
+
+void NormalCargo::SetAutoP(int A)
 {
-	PromotionEvent* P=new PromotionEvent;
-	P->Execute(/*ID,EM,L*/);
+	AutoP = A;
 }
 
-void NormalCargo::Cancel(int ID)
+int NormalCargo::GetAutoPLeft()
 {
+	return 0;
+}
 
+bool NormalCargo::operator==(NormalCargo* &Temp)
+{
+	if (this->GetID() == Temp->GetID())
+		return true;
+	else
+		return false;
 }

@@ -1,14 +1,14 @@
 #pragma once
 #include "Event.h"
-#include"NormalCargo.h"
+
 class CancellationEvent :
     public Event
 {
 
 public:
-    CancellationEvent();
-   /* void PrintInfo();*/
-    virtual void Execute();
+    CancellationEvent(Time,int);
+    virtual void Execute(Cargo*&,int&);
 
+    /* void PrintInfo();*/
 };
 

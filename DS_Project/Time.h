@@ -15,5 +15,9 @@ public:
 	Time operator - (Time const& t);
 	bool operator >(Time const& t);
 	bool operator ==(Time const& t);
+	float operator *(float f);
+	Time operator +(Time const& t);
+	Time operator /(int n);
+	Time operator +(int t);
 };
 

@@ -1,5 +1,5 @@
 #include "Cargo.h"
-//#include <string>
+#include <string>
 void Cargo::SetReadyTime(Time T)
 {
 	ReadyTime = T;
@@ -63,12 +63,56 @@ char Cargo::GetCargoType()
 	return CargoType;
 }
 
-Time Cargo::GetMaxW()
+void Cargo::SetMaxW(int M)
 {
-	return MaxWait;
+	MaxW = M;
+}
+
+int Cargo::GetMaxW()
+{
+	return MaxW;
 }
 
 Time Cargo::GetWaitTime()
 {
 	return  MoveTime - ReadyTime;
+}
+
+void Cargo::SetLoaded(bool l)
+{
+	Loaded = l;
+}
+
+bool Cargo::GetLoaded()
+{
+	return Loaded;
+}
+void Cargo::SetDelvTime(Time t)
+{
+	DelvTime = t;
+}
+void Cargo::SetMyTruckID(int id)
+{
+	MyTruckID = id;
+}
+Time  Cargo::GetDelvTime()
+{
+	return DelvTime;
+}
+int Cargo::GetMyTruckID()
+{
+	return MyTruckID;
+}
+string  Cargo::GetWaitTimeS()
+{
+	return (to_string(WaitTime.GetDay()) + ":" + to_string(WaitTime.GetHour()));
+}
+
+string  Cargo::GetDelvTimeS()
+{
+	return (to_string(DelvTime.GetDay()) + ":" + to_string(DelvTime.GetHour()));
+}
+string  Cargo::GetReadyTimeS()
+{
+	return (to_string(ReadyTime.GetDay()) + ":" + to_string(ReadyTime.GetHour()));
 }

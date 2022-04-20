@@ -1,7 +1,8 @@
 #pragma once
 #include"Time.h"
-#include"Cargo.h"
-//#include <string>
+#include"NormalCargo.h"
+#include"SpecialCargo.h"
+#include"VIPCargo.h"
 #include<fstream>
 using namespace std;
 
@@ -9,16 +10,21 @@ class Event
 {
 	Time EventTime;
 	int CargoID;
+	
 protected:
 	char EventLetter;
 	/*ofstream out;*/
 public:
 	Event(int,int);
-	Event(Time);
+	Event(Time,int);
 	Event();
-	virtual void Execute() = 0;
-	void SetEventTime(Time);
+	virtual void Execute(Cargo*&,int&) = 0;
+	void SetCargoID(int);
+	int GetCargoID();
 	Time GetEventTime();
 	virtual ~Event();
+
+	//void SetEventTime(Time);
+	
 };
 

@@ -4,7 +4,7 @@ Truck::Truck()
 {
 }
 
-bool Truck::UnLoad(Cargo c)
+bool Truck::UnLoad(Cargo* c)
 {
 	
 	while (CargoNo != 0)
@@ -114,17 +114,17 @@ char Truck::GetTruckType()
 	return TruckType;
 }
 
-bool Truck::LoadCargo(Cargo c)
+bool Truck::LoadCargo(Cargo* c)
 {
 
 
 	if (!IsLoaded())
 	{
-		TotLoadTime += c.GetLoadTime();
+		TotLoadTime += c->GetLoadTime();
 		if (CargoNo == 0)
-			MaxDistCargo = c.GetDelvDistance();
-		else if (c.GetDelvDistance() > MaxDistCargo)
-			MaxDistCargo = c.GetDelvDistance();
+			MaxDistCargo = c->GetDelvDistance();
+		else if (c->GetDelvDistance() > MaxDistCargo)
+			MaxDistCargo = c->GetDelvDistance();
 
 
 		Cargos.enqueue(c);

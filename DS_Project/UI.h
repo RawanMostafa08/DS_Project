@@ -1,10 +1,10 @@
 #pragma once
-class Company;
-
+//class Company;
+#include"Company.h"
 class UI
 {
 	Company* C;
 public:
-
+	UI();
+	void Print();
 };
-

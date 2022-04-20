@@ -1,16 +1,15 @@
 #pragma once
 #include "Event.h"
-//#include"NormalCargo.h"
 
 class PromotionEvent :
     public Event
 {
     double ExtraMoney;
 public:
-   PromotionEvent();
-   /* void PrintInfo(int,double);*/
-    virtual void Execute();
-    void SetExtraMoney(double);
-    double GetExtraMoney();
+    PromotionEvent(Time,int,double);
+    virtual void Execute(Cargo*&,int&);
+     double GetExtraMoney();
+    //void SetExtraMoney(double);
+    /* void PrintInfo(int,double);*/
 };
 
