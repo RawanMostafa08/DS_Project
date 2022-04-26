@@ -13,6 +13,7 @@ class Truck
 	float DelvTime;
 	LinkedQueue<Cargo*> Cargos;
 	char TruckType;
+	int id;
 protected:
 	/*int CargoNo;*/
 	int CountJ;
@@ -37,7 +38,7 @@ protected:
 	//int Status; // 0->waiting		1->delivery		2->checkup
 	//int type; //0->vip		1->normal		2->special
 public:
-	Truck(char,int,int,int,int);
+	Truck(char,int,int,int,int,int);
 	Truck();
 	bool LoadCargo(Cargo* c);
 	bool UnLoad(Cargo* c);
@@ -48,6 +49,9 @@ public:
 
 	void SetTruckSpeed(int);
 	int GetTruckSpeed();
+
+	void SetId(int);
+	int GetID();
 
 	void SetJ(int j);
 	int GetJ();

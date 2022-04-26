@@ -4,6 +4,7 @@
 using namespace std;
 class Cargo
 {
+protected:
 	Time ReadyTime;
 	float LoadTime;
 	float UnloadTime;
@@ -33,7 +34,7 @@ public:
 	float GetLoadTime();
 	float GetDelvDistance();
 	double GetCost();
-	int GetID();
+	int GetID() const; 
 	Time GetDelvTime();
 	string GetDelvTimeS();
 	int GetMyTruckID();

@@ -16,13 +16,14 @@ bool Truck::UnLoad(Cargo* c)
 	return false;
 }
 
-Truck::Truck(char c,int NS,int NC,int j,int CN)
+Truck::Truck(char c,int NS,int NC,int j,int CN,int ID)
 {
 	SetTruckType(c);
 	SetTruckSpeed(NS);
 	SetTruckCap(NC);
 	SetJ(j);
 	SetCheckTime(CN);
+	SetId(ID);
 }
 
 void Truck::SetJ(int j)
@@ -95,6 +96,16 @@ float Truck::GetCheckTime()
 int Truck::GetTruckSpeed()
 {
 	return TruckSpeed;
+}
+
+void Truck::SetId(int ID)
+{
+	id = ID;
+}
+
+int Truck::GetID()
+{
+	return id;
 }
 
 bool Truck::IsLoaded()

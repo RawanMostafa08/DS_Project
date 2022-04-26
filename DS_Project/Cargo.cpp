@@ -48,7 +48,7 @@ double Cargo::GetCost()
 	return cost;
 }
 
-int Cargo::GetID()
+int Cargo::GetID() const
 {
 	return ID;
 }

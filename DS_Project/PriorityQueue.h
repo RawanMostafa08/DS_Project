@@ -1,5 +1,4 @@
-#pragma once
-#include"PriorityNode.h"
+
 /*
 This is a program that implements the queue abstract data type using a linked list.
 The queue is implemented as a chain of linked nodes that has two pointers,
@@ -41,10 +40,12 @@ frontPtr	 backPtr
 
 //#ifndef PRIORITY_QUEUE_
 //#define PRIORITY_QUEUE_
+#pragma once
 
-
+#include"PriorityNode.h"
 #include "PriorityQueueADT.h"
-#include <vector>
+//#include <vector>
+#include<iostream>
 using namespace std;
 
 
@@ -61,9 +62,10 @@ public:
 	PriorityQueue();
 	int GetCount();
 	bool isEmpty() const;
-	bool enqueue(const T& newEntry, float x);
+	bool enqueue(const T& newEntry, float x,int n);
 	bool dequeue(T& frntEntry);
 	bool peek(T& frntEntry)  const;
+	void PrintPQ(); 
 	//void DeleteDuplicates(PriorityQueue<T>& LQ);
 	~PriorityQueue();
 
@@ -114,43 +116,170 @@ Output: True if the operation is successful; otherwise false.
 */
 
 template <typename T>
-bool PriorityQueue<T>::enqueue(const T& newEntry, float t)
+bool PriorityQueue<T>::enqueue(const T& newEntry, float t,int n)
 {
-	PriorityNode<T>* prev = frontPtr;
-	PriorityNode<T>* ptr = frontPtr->getNext();
 	PriorityNode<T>* newNodePtr = new PriorityNode<T>(newEntry, t);
+	
 	// Insert the new node
 	if (isEmpty())	//special case if this is the first node to insert
 	{
 		frontPtr = newNodePtr;
+		count++;
 		return true;	// The queue is empty
 	}
-	else
+	if (n == 0)
 	{
-		if ((newNodePtr->GetPriority() <= frontPtr->GetPriority()))
+		if (count == 1)
 		{
-			newNodePtr->setNext(frontPtr);
-			frontPtr = newNodePtr;
-			return true;
-		}
-		while (ptr->getNext())
-		{
-			if (newNodePtr->GetPriority() <= ptr->GetPriority())
+			if ((newNodePtr->GetPriority() < frontPtr->GetPriority()))
 			{
-				newNodePtr->setNext(ptr);
-				prev->setNext(newNodePtr);
+				newNodePtr->setNext(frontPtr);
+				backPtr = frontPtr;
+				frontPtr = newNodePtr;
+				count++;
 				return true;
 			}
 			else
 			{
-				ptr = ptr->getNext();
-				prev = prev->getNext();
+				frontPtr->setNext(newNodePtr);
+				backPtr = newNodePtr;
+				count++;
+				return true;
 			}
 		}
-		backPtr->setNext(newNodePtr); // The queue was not empty
-		backPtr = newNodePtr; // New node is the last node now
-		count++;
-		return true;
+		if (count > 1)
+		{
+			PriorityNode<T>* prev = frontPtr;
+			PriorityNode<T>* ptr = frontPtr->getNext();
+			if ((newNodePtr->GetPriority() < frontPtr->GetPriority()))
+			{
+				newNodePtr->setNext(frontPtr);
+				frontPtr = newNodePtr;
+				count++;
+				return true;
+			}
+			else
+			{
+				while (ptr->getNext())
+				{
+					if (newNodePtr->GetPriority() < ptr->GetPriority())
+					{
+						newNodePtr->setNext(ptr);
+						prev->setNext(newNodePtr);
+						count++;
+						return true;
+					}
+					else if ((newNodePtr->GetPriority() == ptr->GetPriority()))
+					{
+						newNodePtr->setNext(ptr->getNext());
+						ptr->setNext(newNodePtr);
+						count++;
+						//if (!ptr->getNext())
+						//{
+						//	backPtr = newNodePtr;
+						//}
+						return true;
+					}
+					else
+					{
+						ptr = ptr->getNext();
+						prev = prev->getNext();
+					}
+				}
+				if (newNodePtr->GetPriority() > ptr->GetPriority())
+				{
+					prev->setNext(newNodePtr);
+					newNodePtr->setNext(ptr);
+					count++;
+					return true;
+				}
+				else
+				{
+					backPtr->setNext(newNodePtr); // The queue was not empty
+					backPtr = newNodePtr; // New node is the last node now
+					newNodePtr->setNext(nullptr);
+					count++;
+					return true;
+				}
+			}
+		}
+	}
+	else if (n == 1)
+	{
+		if (count == 1)
+		{
+			if ((newNodePtr->GetPriority() > frontPtr->GetPriority()))
+			{
+				newNodePtr->setNext(frontPtr);
+				backPtr = frontPtr;
+				frontPtr = newNodePtr;
+				count++;
+				return true;
+			}
+			else
+			{
+				frontPtr->setNext(newNodePtr);
+				backPtr = newNodePtr;
+				count++;
+				return true;
+			}
+		}
+		if (count > 1)
+		{
+			PriorityNode<T>* prev = frontPtr;
+			PriorityNode<T>* ptr = frontPtr->getNext();
+			if ((newNodePtr->GetPriority() > frontPtr->GetPriority()))
+			{
+				newNodePtr->setNext(frontPtr);
+				frontPtr = newNodePtr;
+				count++;
+				return true;
+			}
+			else
+			{
+				while (ptr->getNext())
+				{
+					if (newNodePtr->GetPriority() > ptr->GetPriority())
+					{
+						newNodePtr->setNext(ptr);
+						prev->setNext(newNodePtr);
+						count++;
+						return true;
+					}
+					else if ((newNodePtr->GetPriority() == ptr->GetPriority()))
+					{
+						newNodePtr->setNext(ptr->getNext());
+						ptr->setNext(newNodePtr);
+						count++;
+						//if (!ptr->getNext())
+						//{
+						//	backPtr = newNodePtr;
+						//}
+						return true;
+					}
+					else
+					{
+						ptr = ptr->getNext();
+						prev = prev->getNext();
+					}
+				}
+				if (newNodePtr->GetPriority() > ptr->GetPriority())
+				{
+					prev->setNext(newNodePtr);
+					newNodePtr->setNext(ptr);
+					count++;
+					return true;
+				}
+				else
+				{
+					backPtr->setNext(newNodePtr); // The queue was not empty
+					backPtr = newNodePtr; // New node is the last node now
+					newNodePtr->setNext(nullptr);
+					count++;
+					return true;
+				}
+			}
+		}
 	}
 } // end enqueue
 
@@ -249,7 +378,22 @@ PriorityQueue<T>::PriorityQueue(const PriorityQueue<T>& LQ)
 		NodePtr = NodePtr->getNext();
 	}
 }
-//#endif
+template<typename T>
+ void PriorityQueue<T>::PrintPQ() 
+{
+	 //PriorityNode<T>* p = frontPtr;
+	 //if (!isEmpty())
+	 //{
+		// while (p->getNext())
+		// {
+		//	 cout << (*p).getItem() << ",";
+		//	 p = p->getNext();
+		// }
+		// cout << (*p).getItem();
+	 //}
+	 //else cout << " ";
+}
+
 
 
 

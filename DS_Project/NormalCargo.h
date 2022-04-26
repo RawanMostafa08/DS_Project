@@ -8,6 +8,6 @@ class NormalCargo :
 public:
     void SetAutoP(int);
     int GetAutoPLeft();
-    bool operator ==(NormalCargo*&);
+    bool operator ==( const NormalCargo &) const;
 };
 

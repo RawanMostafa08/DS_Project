@@ -44,6 +44,16 @@ bool Time::operator >(Time const& t)
 	}
 	return false;
 }
+bool Time::operator <(Time const& t)
+{
+	if (day < t.day) return true;
+	else if (day > t.day)return false;
+	else
+	{
+		if (hour < t.hour)return true;
+	}
+	return false;
+}
 bool Time::operator ==(Time const& t)
 {
 	if (day == t.day && hour == t.hour) return true;
@@ -51,7 +61,7 @@ bool Time::operator ==(Time const& t)
 }
 float Time::operator *(float f)
 {
-	return f * (this->GetDay() + this->GetHour());
+	return f * ((this->GetDay()*24) + this->GetHour());
 }
 Time Time::operator +(Time const& t)
 {

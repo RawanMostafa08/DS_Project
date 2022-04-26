@@ -1,4 +1,3 @@
-
 #ifndef _NODE
 #define _NODE
 template < typename T>
@@ -40,44 +39,3 @@ public:
 	}
 }; // end Node
 #endif
-
-//template < typename T>
-//Node<T>::Node()
-//{
-//	
-//}
-//
-//template < typename T>
-//Node<T>::Node(const T& r_Item)
-//{
-//
-//}
-//
-//template < typename T>
-//Node<T>::Node(const T& r_Item, Node<T>* nextNodePtr)
-//{
-//	
-//}
-//template < typename T>
-//void Node<T>::setItem(const T& r_Item)
-//{
-//	
-//}
-//
-//template < typename T>
-//void Node<T>::setNext(Node<T>* nextNodePtr)
-//{
-//	
-//}
-//
-//template < typename T>
-//T Node<T>::getItem() const
-//{
-//	
-//}
-//
-//template < typename T>
-//Node<T>* Node<T>::getNext() const
-//{
-//	
-//}

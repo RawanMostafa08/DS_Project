@@ -10,10 +10,9 @@ int NormalCargo::GetAutoPLeft()
 	return 0;
 }
 
-bool NormalCargo::operator==(NormalCargo* &Temp)
+bool NormalCargo::operator==(const NormalCargo & Temp) const
 {
-	if (this->GetID() == Temp->GetID())
+	if (ID == Temp.GetID())
 		return true;
-	else
-		return false;
+	return false;
 }
