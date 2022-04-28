@@ -138,7 +138,7 @@ bool Truck::LoadCargo(Cargo* c)
 			MaxDistCargo = c->GetDelvDistance();
 
 
-		Cargos.enqueue(c);
+		Cargos.enqueue(c,1,0);
 		CargoNo++;
 		if (IsLoaded())
 		{

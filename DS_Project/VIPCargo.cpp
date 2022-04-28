@@ -15,7 +15,7 @@ void VIPCargo::SetPromoted(NormalCargo* N, double em)
 
 void VIPCargo::SetPriority()
 {
-	Priority=(ReadyTime * 0.3 ) + (0.4 * DelvDistance) + (0.3 * cost);
+	Priority=(0.4 * DelvDistance) + (0.3 * cost) - (ReadyTime * 0.3);
 }
 
 float VIPCargo::GetPriority()

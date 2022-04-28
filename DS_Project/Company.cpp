@@ -315,11 +315,6 @@ LinkedList<NormalCargo*>* Company::GetNWait()
 	return &WaitingN;
 }
 
-LinkedQueue<NormalCargo*>* Company::GetNLoad()
-{
-	return &LoadingN;
-}
-
 PriorityQueue<NormalCargo*>* Company::GetNMove()
 {
 	return &MovingN;
@@ -335,11 +330,6 @@ PriorityQueue<VIPCargo*>* Company::GetVWait()
 	return &WaitingV;
 }
 
-LinkedQueue<VIPCargo*>* Company::GetVLoad()
-{
-	return &LoadingV;
-}
-
 PriorityQueue<VIPCargo*>* Company::GetVMove()
 {
 	return &MovingV;
@@ -353,11 +343,6 @@ LinkedQueue<VIPCargo*>* Company::GetVDelv()
 LinkedQueue<SpecialCargo*>* Company::GetSWait()
 {
 	return &WaitingS;
-}
-
-LinkedQueue<SpecialCargo*>* Company::GetSLoad()
-{
-	return &LoadingS;
 }
 
 PriorityQueue<SpecialCargo*>* Company::GetSMove()
@@ -559,37 +544,55 @@ void Company::GetVWTListId(int arr[], int& n)
 
 void Company::GetNLTListId(int arr[], int& n)
 {
-	n = LMNT.GetCount();
+	n = LNT.GetCount();
+	LinkedQueue<Truck*> L;
 	Truck* aux;
 	for (int i = 0; i < n; i++)
 	{
-		LMNT.dequeue(aux);
+		LNT.dequeue(aux);
 		arr[i] = aux->GetID();
-		LMNT.enqueue(aux); 
+		L.enqueue(aux); //aux->GetDelvTime().GetDay() * 24 + aux->GetDelvTime().GetHour()
+	}
+	for (int i = 0; i < n; i++)
+	{
+		L.dequeue(aux);
+		LNT.enqueue(aux,0, 1);
 	}
 }
 
 void Company::GetSLTListId(int arr[], int& n)
 {
-	n = LMST.GetCount();
+	n = LST.GetCount();
+	LinkedQueue<Truck*> L;
 	Truck* aux;
 	for (int i = 0; i < n; i++)
 	{
-		LMST.dequeue(aux);
+		LST.dequeue(aux);
 		arr[i] = aux->GetID();
-		LMST.enqueue(aux); 
+		L.enqueue(aux); //aux->GetDelvTime().GetDay() * 24 + aux->GetDelvTime().GetHour()
+	}
+	for (int i = 0; i < n; i++)
+	{
+		L.dequeue(aux);
+		LST.enqueue(aux, 0, 1);
 	}
 }
 
 void Company::GetVLTListId(int arr[], int& n)
 {
-	n = LMVT.GetCount();
+	n = LVT.GetCount();
+	LinkedQueue<Truck*> L;
 	Truck* aux;
 	for (int i = 0; i < n; i++)
 	{
-		LMVT.dequeue(aux);
+		LVT.dequeue(aux);
 		arr[i] = aux->GetID();
-		LMVT.enqueue(aux); 
+		L.enqueue(aux); //aux->GetDelvTime().GetDay() * 24 + aux->GetDelvTime().GetHour()
+	}
+	for (int i = 0; i < n; i++)
+	{
+		L.dequeue(aux);
+		LVT.enqueue(aux, 0, 1);
 	}
 }
 
@@ -644,19 +647,19 @@ LinkedQueue<Truck*>* Company::GetVWaitT()
 	return &WVT;
 }
 
-LinkedQueue<Truck*>* Company::GetNLoadT()
+PriorityQueue<Truck*>* Company::GetNLoadT()
 {
-	return &LMNT;
+	return &LNT;
 }
 
-LinkedQueue<Truck*>* Company::GetSLoadT()
+PriorityQueue<Truck*>* Company::GetSLoadT()
 {
-	return &LMST;
+	return &LST;
 }
 
-LinkedQueue<Truck*>* Company::GetVLoadT()
+PriorityQueue<Truck*>* Company::GetVLoadT()
 {
-	return &LMVT;
+	return &LVT;
 }
 
 LinkedQueue<Truck*>* Company::GetNCheckT()
