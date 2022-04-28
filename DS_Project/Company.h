@@ -8,27 +8,25 @@
 #include"Truck.h"
 #include"Time.h"
 #include"LinkedList.h"
+#include"LinkedQueue.h"
 #include"ArrayStack.h"
 //#include"Event.h"
 #include"ReadyEvent.h"
 #include"CancellationEvent.h"
-#include"PriorityQueue.h"
+//#include"PriorityQueue.h"
 #include"PromotionEvent.h"
 class Company
 {
 	//Cargo Lists
 	LinkedList<NormalCargo*>WaitingN;
-	LinkedQueue<NormalCargo*>LoadingN;
 	PriorityQueue<NormalCargo*>MovingN;
 	LinkedQueue<NormalCargo*>DeliveredN;
 
 	LinkedQueue<SpecialCargo*>WaitingS;
-	LinkedQueue<SpecialCargo*>LoadingS;
 	PriorityQueue<SpecialCargo*>MovingS;
 	LinkedQueue<SpecialCargo*>DeliveredS;
 
 	PriorityQueue<VIPCargo*>WaitingV;
-	LinkedQueue<VIPCargo*>LoadingV;
 	PriorityQueue<VIPCargo*>MovingV;
 	LinkedQueue<VIPCargo*>DeliveredV;
 
@@ -41,10 +39,13 @@ class Company
 	LinkedQueue<Truck*> CVT;
 	LinkedQueue<Truck*> CST;
 
-	LinkedQueue<Truck*>LMNT;  //loading trucks
-	LinkedQueue<Truck*>LMVT;
-	LinkedQueue<Truck*>LMST;
+	PriorityQueue<Truck*>LNT;  //loading trucks
+	PriorityQueue<Truck*>LVT;
+	PriorityQueue<Truck*>LST;
 
+	PriorityQueue<Truck*>MNT;  //Moving trucks
+	PriorityQueue<Truck*>MVT;
+	PriorityQueue<Truck*>MST;
 	//Event Pointers List
 	LinkedQueue<Event*>E;
 
@@ -88,17 +89,14 @@ public:
 	bool IsInWorkingHours();
 
 	LinkedList<NormalCargo*>* GetNWait();
-	LinkedQueue<NormalCargo*>* GetNLoad();
 	PriorityQueue<NormalCargo*>* GetNMove();
 	LinkedQueue<NormalCargo*>* GetNDelv();
 
 	PriorityQueue<VIPCargo*>* GetVWait();
-	LinkedQueue<VIPCargo*>* GetVLoad();
 	PriorityQueue<VIPCargo*>* GetVMove();
 	LinkedQueue<VIPCargo*>* GetVDelv();
 
 	LinkedQueue<SpecialCargo*>* GetSWait();
-	LinkedQueue<SpecialCargo*>* GetSLoad();
 	PriorityQueue<SpecialCargo*>* GetSMove();
 	LinkedQueue<SpecialCargo*>* GetSDelv();
 
@@ -128,9 +126,9 @@ public:
 	LinkedQueue<Truck*>* GetSWaitT();
 	LinkedQueue<Truck*>* GetVWaitT();
 
-	LinkedQueue<Truck*>* GetNLoadT();
-	LinkedQueue<Truck*>* GetSLoadT();
-	LinkedQueue<Truck*>* GetVLoadT();
+	PriorityQueue<Truck*>* GetNLoadT();
+	PriorityQueue<Truck*>* GetSLoadT();
+	PriorityQueue<Truck*>* GetVLoadT();
 
 	LinkedQueue<Truck*>* GetNCheckT();
 	LinkedQueue<Truck*>* GetSCheckT();

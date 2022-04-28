@@ -1,6 +1,6 @@
 #pragma once
 #include"QueueADT.h"
-#include"LinkedQueue.h"
+#include"PriorityQueue.h"
 #include"Cargo.h"
 
 class Truck
@@ -11,7 +11,7 @@ class Truck
 	float CheckTime;
 	float TruckSpeed;
 	float DelvTime;
-	LinkedQueue<Cargo*> Cargos;
+	PriorityQueue<Cargo*> Cargos;
 	char TruckType;
 	int id;
 protected:

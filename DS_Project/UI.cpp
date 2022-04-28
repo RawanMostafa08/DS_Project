@@ -192,7 +192,7 @@ void UI::Print()
 	cout << "------------------------------------------------------ -" << endl;
 	/*//////////////////////////////////////////////////*/
 	int cwt = C->GetNWaitT()->GetCount() + C->GetSWaitT()->GetCount() + C->GetVWaitT()->GetCount();
-	cout << cwt << " Waiting Trucks : [";
+	cout << cwt << " Empty Trucks : [";
 	if (C->GetNWaitT()->GetCount() > 0)
 	{
 		for (int i = 0; i < (C->GetNWaitT()->GetCount()) - 1; i++)
@@ -224,14 +224,9 @@ void UI::Print()
 
 	/*//////////////////////////////////////////////////*/
 
-	
-	/*//////////////////////////////////////////////////*/
-
-	
-
 	/*//////////////////////////////////////////////////*/
 	int cm = C->GetNMove()->GetCount() + C->GetSMove()->GetCount() + C->GetVMove()->GetCount();
-	cout << cm << "Moving Cargos : [";
+	cout << cm << " Moving Cargos : [";
 	if (C->GetNMove()->GetCount())
 	{
 		for (int i = 0; i < (C->GetNMove()->GetCount()) - 1; i++)
@@ -293,7 +288,7 @@ void UI::Print()
 	cout << "------------------------------------------------------ -" << endl;
 	/*///////////////////////////////////////////////*/
 	int cd = C->GetNDelv()->GetCount() + C->GetSDelv()->GetCount() + C->GetVDelv()->GetCount();
-	cout << cd << "Delivered Cargos : [";
+	cout << cd << " Delivered Cargos : [";
 	if (C->GetNDelv()->GetCount())
 	{
 		for (int i = 0; i < (C->GetNDelv()->GetCount()) - 1; i++)
@@ -321,7 +316,7 @@ void UI::Print()
 		cout << VDListId[C->GetVDelv()->GetCount()-1];
 	}
 	cout << "}" << endl;
-
+	////////////////////////
 	delete[]NWListId;
 	delete[]SWListId;
 	delete[]VWListId;
@@ -331,7 +326,7 @@ void UI::Print()
 	delete[]NDListId; 
 	delete[]SDListId;
 	delete[]VDListId;
-
+	////////////////////////
 	delete[]NWTListId;
 	delete[]SWTListId;
 	delete[]VWTListId;
@@ -341,5 +336,6 @@ void UI::Print()
 	delete[]NCTListId;
 	delete[]SCTListId;
 	delete[]VCTListId;
+	////////////////////////
 }
 
